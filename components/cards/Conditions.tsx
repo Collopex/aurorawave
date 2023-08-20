@@ -16,7 +16,7 @@ const Conditions = ({ label, logo, result }: Props) => {
           {label}
         </h3>
 
-        <div className='flex flex-col gap-4  items-center'>
+        <div className='flex flex-col gap-5 md:gap-8 lg:gap-5  items-center'>
           <div>{logo}</div>
           <span className='xl:text-4xl text-3xl font-semibold text-[#ffffff] overflow-y-hidden'>
             {result}

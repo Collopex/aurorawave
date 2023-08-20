@@ -2,7 +2,7 @@ const PressureIcon = () => {
   return (
     <div>
       <svg
-        width='79'
+        width='64'
         height='64'
         viewBox='0 0 70 57'
         fill='none'

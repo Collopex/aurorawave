@@ -2,7 +2,7 @@ const VisibilityIcon = () => {
   return (
     <div>
       <svg
-        width='93'
+        width='82'
         height='64'
         viewBox='0 0 93 64'
         fill='none'

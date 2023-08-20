@@ -53,7 +53,7 @@ const AirQuality = () => {
           </div>
         </div>
 
-        <div className='md:flex md:flex-row flex flex-col  items-center mt-3 gap-5 md:gap-14 lg:gap-14 '>
+        <div className='md:flex md:flex-row flex flex-col  items-center mt-3 gap-5 md:gap-14 lg:gap-14 2xl:gap-8 '>
           <div>
             <WindIcon width='110' height='110' />
           </div>

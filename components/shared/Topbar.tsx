@@ -2,13 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import useWeather from '@/app/hooks/useWeather';
-import {
-  CloseIcon,
-  LocationIcon,
-  Logo,
-  SearchIcon,
-  SunnyIcon,
-} from '@/public/icons';
+import { CloseIcon, LocationIcon, Logo, SearchIcon } from '@/public/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectGeoCode,
@@ -21,6 +15,11 @@ import {
 import { PulseLoader } from 'react-spinners';
 import debounce from 'lodash.debounce';
 import { motion, AnimatePresence } from 'framer-motion';
+import axios from 'axios';
+
+type LocationData = {
+  loc: string;
+};
 
 const Topbar = () => {
   const dispatch = useDispatch();
@@ -130,25 +129,20 @@ const Topbar = () => {
     fetchHourly();
   }, [selectedLat, selectedLng, dispatch]);
 
-  // Getting current lat and lng data from geolocation API service
+  // Getting current lat and lng data from IPINFO API service
 
-  const handleGetCurrentLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-
-          setSelectedLat(lat);
-          setSelectedLng(lng);
-        },
-        (error) => {
-          console.error('Error getting current location:', error);
-        },
-        { enableHighAccuracy: true }
+  const handleGetCurrentLocation = async () => {
+    try {
+      const response = await axios.get<LocationData>(
+        `https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_IPINFO_API_KEY}`
       );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
+      const { loc } = response.data;
+      const [lat, lng] = loc.split(',');
+
+      setSelectedLat(parseFloat(lat));
+      setSelectedLng(parseFloat(lng));
+    } catch (error) {
+      console.error('Error fetching location:', error);
     }
   };
 
@@ -259,12 +253,12 @@ const Topbar = () => {
         </div>
       </div>
 
-      <div className='flex gap-2'>
+      <div className='flex gap-2 '>
         <div className='relative'>
           <AnimatePresence>
             {expanded && (
               <motion.div
-                className='fixed top-0 left-0 w-full h-full bg-black z-10'
+                className='fixed top-0 left-0 w-full h-screen bg-black z-10'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -287,7 +281,7 @@ const Topbar = () => {
                   <button
                     onClick={handleButtonClick}
                     aria-label='Search'
-                    className={`absolute right-12 flex items-center justify-center w-9 h-9 rounded-full bg-[#2f2f2f]/90 hover:border-[2.1px] border-white active:bg-[#303030]/90 cursor-pointer`}
+                    className={`absolute right-12 flex items-center justify-center w-9 h-9 rounded-full hover:bg-[#2f2f2f]/90  active:bg-[#303030]/90 cursor-pointer`}
                   >
                     <CloseIcon />
                   </button>
@@ -337,7 +331,7 @@ const Topbar = () => {
           <button
             onClick={handleButtonClick}
             aria-label='Search'
-            className={`z-50 lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[#2f2f2f]/90 hover:border-[2.1px] border-white active:bg-[#303030]/90 cursor-pointer`}
+            className={`z-50 lg:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#2f2f2f]/90 active:bg-[#303030]/90 cursor-pointer`}
           >
             <SearchIcon />
           </button>
@@ -346,7 +340,7 @@ const Topbar = () => {
         <button
           aria-label='Get Current Location'
           onClick={handleGetCurrentLocation}
-          className={`flex items-center justify-center w-10 h-10 rounded-full bg-[#2f2f2f]/90  hover:border-[2.1px] border-white  active:bg-[#303030]/90  cursor-pointer`}
+          className={`flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#2f2f2f]/90 active:bg-[#303030]/90  cursor-pointer`}
         >
           <LocationIcon fill='#FFFF' />
         </button>

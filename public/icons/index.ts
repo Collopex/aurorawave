@@ -19,7 +19,7 @@ import ThunderStormIcon from './ThunderStormIcon';
 import FewCloudsIcon from './FewCloudsIcon';
 import HeavyShowerIcon from './HeavyShowerIcon';
 import FogIcon from './FogIcon';
-import CloseIcon from '../CloseIcon';
+import CloseIcon from './CloseIcon';
 
 export {
   Logo,

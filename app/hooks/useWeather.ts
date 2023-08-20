@@ -16,7 +16,7 @@ const useWeather = () => {
   const fetchAirQuality = async (lat: number, lon: number) => {
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
       );
       return response.data;
     } catch (error) {
@@ -27,7 +27,7 @@ const useWeather = () => {
   const fetch24HourWeather = async (lat: number, lon: number) => {
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
       );
       return response.data;
     } catch (error) {
@@ -38,7 +38,7 @@ const useWeather = () => {
   const fetchGeoCode = async (input: string | number) => {
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
       );
       return response.data;
     } catch (error) {

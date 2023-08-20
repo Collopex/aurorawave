@@ -7,9 +7,9 @@ const Logo = ({ size }: Props) => {
     if (size === 'large') {
       return '70';
     } else if (size === 'small') {
-      return '50';
+      return '40';
     } else {
-      return '60';
+      return '55';
     }
   };
   const logoSize = getSize();

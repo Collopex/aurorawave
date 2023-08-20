@@ -9,7 +9,7 @@ type Props = {
 const Conditions = ({ label, logo, result }: Props) => {
   return (
     <div
-      className={`xl:w-[240px] xl:h-[200px] md:h-[228px] md:w-[136px] w-[125px] h-[210px]  bg-[#c1c1c1c1]/5 rounded-[20px]`}
+      className={`xl:w-[240px] xl:h-[200px] md:h-[228px] md:w-[136px] w-[125px] h-[190px]  bg-[#c1c1c1c1]/5 rounded-[20px]`}
     >
       <div>
         <h3 className={`font-medium text-lg text-[#DEDDDD] mx-6 my-3`}>

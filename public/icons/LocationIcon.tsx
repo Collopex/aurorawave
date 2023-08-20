@@ -7,7 +7,7 @@ const LocationIcon = ({ fill }: Props) => {
     <div>
       <svg
         width='15'
-        height='22'
+        height='20'
         viewBox='0 0 15 22'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

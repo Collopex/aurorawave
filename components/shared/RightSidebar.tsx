@@ -50,10 +50,10 @@ const RightSidebar = () => {
         <div className='flex flex-col gap-5 overflow-y-hidden scrollbar-hide'>
           {/*Upper Part  */}
           <div
-            className={`flex mx-auto 2xl:w-[1085px] 2xl:h-[535px] xl:w-[1130px] xl:h-[530px] lg:w-[735px]  md:w-[700px] md:h-[600px]  w-[320px] h-[1170px] rounded-[20px] bg-[#2f2f2f]/30`}
+            className={`flex mx-auto 2xl:w-[1085px] 2xl:h-[535px] xl:w-[1130px] xl:h-[530px] lg:w-[735px] lg:h-[580px] md:w-[700px] md:h-[600px] w-[320px] h-[1130px] rounded-[20px] bg-[#2f2f2f]/30`}
           >
             <div className='px-[calc(0.95vw+20px)] py-[calc(0.7vw+10px)]'>
-              <h2 className={`text-[#DEDDDD] text-lg font-semibold `}>
+              <h2 className='text-[#DEDDDD] text-lg font-semibold mt-2 md:mt-0'>
                 Today's Forecast
               </h2>
 

@@ -33,6 +33,9 @@ const Topbar = () => {
 
   const [searchInput, setSearchInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [selectedLat, setSelectedLat] = useState<number | null>(null);
+  const [selectedLng, setSelectedLng] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
 
   const debouncedFetchData = useCallback(
     debounce(async (input: string) => {
@@ -69,9 +72,6 @@ const Topbar = () => {
   };
 
   // Fetch weather data based on latitude and longitude values and initialize the default weather
-
-  const [selectedLat, setSelectedLat] = useState<number | null>(null);
-  const [selectedLng, setSelectedLng] = useState<number | null>(null);
 
   const initialLat = 40.1885;
   const initialLng = 29.061;
@@ -146,11 +146,19 @@ const Topbar = () => {
     }
   };
 
-  const [expanded, setExpanded] = useState(false);
-
   const handleButtonClick = () => {
     setExpanded(!expanded);
+    setSearchInput('');
   };
+
+  // If
+  useEffect(() => {
+    if (expanded) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  }, [expanded]);
 
   //  Close the overlay if the user try to open overlay in large devices
   useEffect(() => {
@@ -172,9 +180,9 @@ const Topbar = () => {
   }
 
   return (
-    <div className='flex items-center justify-between '>
+    <div className='flex items-center justify-between'>
       <div
-        className={`flex items-center gap-3 text-[#DEDDDD] font-semibold tracking-wide text-[20px] leading-6 xl:text-3xl `}
+        className={`flex items-center gap-3 text-[#DEDDDD] font-semibold tracking-wide text-lg xl:text-3xl `}
       >
         <div className='lg:visible hidden lg:block'>
           <Logo size='large' />
@@ -197,7 +205,7 @@ const Topbar = () => {
         >
           <div className='flex items-center gap-14 '>
             <div className='flex items-center gap-[10px] mx-5 flex-1'>
-              <SearchIcon />
+              <SearchIcon width='16' height='16' />
               <input
                 type='text'
                 value={searchInput}
@@ -253,18 +261,20 @@ const Topbar = () => {
         </div>
       </div>
 
-      <div className='flex gap-2 '>
+      <div className='flex my-auto gap-[10px]  '>
         <div className='relative'>
           <AnimatePresence>
             {expanded && (
               <motion.div
-                className='fixed top-0 left-0 w-full h-screen bg-black z-10'
+                className={`fixed top-0 left-0 w-full h-screen bg-black z-10 ${
+                  expanded ? 'pointer-events-auto' : 'pointer-events-none'
+                }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <div className=' relative flex items-center gap-4 top-10 left-8 transform   '>
-                  <SearchIcon />
+                <div className=' relative flex items-center gap-4 top-10 left-8 transform '>
+                  <SearchIcon width='16' height='16' />
                   <input
                     type='text'
                     value={searchInput}
@@ -281,7 +291,7 @@ const Topbar = () => {
                   <button
                     onClick={handleButtonClick}
                     aria-label='Search'
-                    className={`absolute right-12 flex items-center justify-center w-9 h-9 rounded-full hover:bg-[#2f2f2f]/90  active:bg-[#303030]/90 cursor-pointer`}
+                    className={`absolute -mt-1 right-12 flex items-center justify-center w-9 h-9 rounded-full bg-[#303030]/90 active:bg-[#2f2f2f]/30 cursor-pointer`}
                   >
                     <CloseIcon />
                   </button>
@@ -331,16 +341,16 @@ const Topbar = () => {
           <button
             onClick={handleButtonClick}
             aria-label='Search'
-            className={`z-50 lg:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#2f2f2f]/90 active:bg-[#303030]/90 cursor-pointer`}
+            className={`z-50 lg:hidden flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-[#303030]/90 active:bg-[#2f2f2f]/30`}
           >
-            <SearchIcon />
+            <SearchIcon width='20' height='20' />
           </button>
         </div>
 
         <button
           aria-label='Get Current Location'
           onClick={handleGetCurrentLocation}
-          className={`flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#2f2f2f]/90 active:bg-[#303030]/90  cursor-pointer`}
+          className={`flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-[#303030]/90 active:bg-[#2f2f2f]/30`}
         >
           <LocationIcon fill='#FFFF' />
         </button>

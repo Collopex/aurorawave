@@ -1,3 +1,3 @@
 Simple Minimalist Weather App
 
-![AuroWave](https://github.com/Collopex/aurorawave/assets/116594322/f50538bf-c37f-4ee7-8cfb-817cfd9dc2fe)
+![AuroWave](https://github.com/Collopex/aurorawave/assets/116594322/5895acb7-1952-42a8-aa01-c11704e14d7e)

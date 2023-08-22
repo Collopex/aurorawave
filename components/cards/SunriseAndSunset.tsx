@@ -25,7 +25,7 @@ const SunriseAndSunset = () => {
   const localSunsetTime = new Date(
     (sunsetUnixTimestamp + timezoneOffset) * 1000
   );
-  const formattedSunset = localSunsetTime.toLocaleTimeString([], {
+  const formattedSunsetTime = localSunsetTime.toLocaleTimeString([], {
     hour: 'numeric',
     minute: '2-digit',
     hour12: true,
@@ -55,7 +55,7 @@ const SunriseAndSunset = () => {
             <div className='flex flex-col'>
               <p className={`text-lg  font-semibold text-[#DEDDDD] `}>Sunset</p>
               <p className='text-[22px] font-bold text-[#ffffff]'>
-                {formattedSunset}
+                {formattedSunsetTime}
               </p>
             </div>
           </div>

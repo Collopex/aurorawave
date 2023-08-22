@@ -148,10 +148,14 @@ const Topbar = () => {
 
   const handleButtonClick = () => {
     setExpanded(!expanded);
+    if (!expanded) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
     setSearchInput('');
   };
 
-  // If
   useEffect(() => {
     if (expanded) {
       document.body.classList.add('overflow-hidden');

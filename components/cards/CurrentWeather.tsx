@@ -76,7 +76,7 @@ const CurrentWeather = () => {
         </div>
       </div>
 
-      <div className='flex flex-col px-6 gap-2 mt-3'>
+      <div className='flex flex-col px-6 gap-2'>
         <div className='flex items-center gap-3'>
           <div>
             <LocationIcon fill='#DEDDDD' />

@@ -57,7 +57,7 @@ const RightSidebar = () => {
                 Today's Forecast
               </h2>
 
-              <div className='md:flex md:flex-row flex flex-col mt-5 gap-10 md:gap-5 lg:gap-10 '>
+              <div className='md:flex md:flex-row flex flex-col mt-5 gap-10 md:gap-5 lg:gap-9 xl:gap-16 2xl:gap-10 '>
                 <div className='flex flex-col gap-4'>
                   <div>
                     <SunriseAndSunset />

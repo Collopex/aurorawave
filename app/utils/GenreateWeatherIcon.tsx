@@ -24,6 +24,7 @@ const weatherIconComponents = {
   thunderstorm: ThunderStormIcon,
   snow: SnowIcon,
   mist: FogIcon,
+  haze: FogIcon,
 };
 export type WeatherType = keyof typeof weatherIconComponents;
 

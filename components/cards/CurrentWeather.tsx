@@ -20,6 +20,7 @@ const CurrentWeather = () => {
 
   // Current weather and converting capital case of the first letter of each word.
   const currentWeather = weatherData.weather[0].description;
+  console.log(currentWeather);
   const capitalizedWeather = currentWeather
     .split(' ')
     .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -54,7 +55,7 @@ const CurrentWeather = () => {
 
   return (
     <div
-      className={`xl:w-[300px] xl:h-[310px] md:w-[350px] md:h-[330px] w-[320px] h-[320px] bg-[#2f2f2f]/30 rounded-[20px]`}
+      className={`xl:w-[300px] xl:h-[310px] md:w-[315px] md:h-[330px] w-[320px] h-[320px] bg-[#2f2f2f]/30 rounded-[20px]`}
     >
       <div className={`flex flex-col px-6 pt-6 pb-0 text-[#DEDDDD]`}>
         <h2 className='text-lg font-semibold '>Current Weather</h2>

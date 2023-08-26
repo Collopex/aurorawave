@@ -33,7 +33,7 @@ const SunriseAndSunset = () => {
 
   return (
     <div
-      className={`flex  xl:w-[475px] xl:h-[200px]  md:w-[335px] md:h-[255px] w-[270px] h-[320px] rounded-[20px] bg-[#c1c1c1c1]/5 overflow-y-hidden scrollbar-hide`}
+      className={`flex 2xl:w-[475px] 2xl:h-[200px] xl:w-[500px] xl:h-[200px] md:w-[335px] md:h-[255px] w-[270px] h-[320px] rounded-[20px] bg-[#c1c1c1c1]/5 overflow-y-hidden scrollbar-hide`}
     >
       <div className='p-4'>
         <h3 className={`font-medium text-lg text-[#DEDDDD] mx-2`}>

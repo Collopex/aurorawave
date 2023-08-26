@@ -34,7 +34,7 @@ const AirQuality = () => {
 
   return (
     <div
-      className={`xl:w-[475px] xl:h-[200px] md:w-[335px] md:h-[200px] w-[270px] h-[260px] rounded-[20px] bg-[#c1c1c1c1]/5
+      className={`2xl:w-[475px] 2xl:h-[200px] xl:w-[500px] xl:h-[200px] md:w-[335px] md:h-[200px] w-[270px] h-[260px] rounded-[20px] bg-[#c1c1c1c1]/5
       `}
     >
       <div className='p-4'>

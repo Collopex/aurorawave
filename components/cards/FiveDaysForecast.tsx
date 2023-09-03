@@ -22,9 +22,7 @@ const FiveDaysForecast = () => {
     return filteredData.map((day, index: number) => (
       <div
         key={index}
-        className={`2xl:flex-row xl:flex-col flex  xl:justify-center items-center flex-1 mx-3 ${
-          index === 0 ? 'mt-[6px]' : ''
-        }`}
+        className={`2xl:flex-row xl:flex-col flex  xl:justify-center items-center flex-1 mx-3 mt-[14px] }`}
       >
         <div className='2xl:flex-row xl:flex-col flex items-center flex-1 gap-1'>
           {GenerateWeatherIcon(

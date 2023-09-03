@@ -47,7 +47,7 @@ const FiveDaysForecast = () => {
   return (
     <div>
       <div
-        className={`2xl:flex 2xl:flex-col 2xl:w-[300px] 2xl:h-[418px] xl:w-[800px] xl:h-[250px] md:w-[350px] md:h-[330px] w-[320px] h-[418px] overflow-scroll scrollbar-hide   bg-[#2f2f2f]/30 rounded-[20px] `}
+        className={`2xl:flex 2xl:flex-col 2xl:w-[300px] 2xl:h-[418px] xl:w-[800px] xl:h-[250px] md:w-[350px] md:h-[330px] w-[320px] h-[418px] overflow-scroll scrollbar-hide bg-[#2f2f2f]/30 rounded-[20px] `}
       >
         <div>
           <h2 className={`text-lg text-[#DEDDDD] font-semibold mx-6 my-5`}>

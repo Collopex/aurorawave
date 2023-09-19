@@ -16,7 +16,7 @@ const FiveDaysForecast = () => {
     }
 
     const filteredData = dayData.list.filter(
-      (_: any, index: number) => (index - 6) % 7 === 0
+      (_: any, index: number) => (index - 6) % 8 === 0
     );
 
     return filteredData.map((day, index: number) => (

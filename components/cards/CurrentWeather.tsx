@@ -64,7 +64,7 @@ const CurrentWeather = () => {
 
       <div className='flex items-center gap-4'>
         <div>{GenerateWeatherIcon(currentWeatherIcon, '150', '150')}</div>
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center justify-center'>
           <p className='text-[#ffffff] font-bold text-5xl overflow-y-hidden'>
             {temperatureInCelsius}°C
           </p>

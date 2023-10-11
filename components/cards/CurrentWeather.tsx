@@ -20,7 +20,7 @@ const CurrentWeather = () => {
 
   // Current weather and converting capital case of the first letter of each word.
   const currentWeather = weatherData.weather[0].description;
-  console.log(currentWeather);
+  console.log(currentWeatherIcon);
   const capitalizedWeather = currentWeather
     .split(' ')
     .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
